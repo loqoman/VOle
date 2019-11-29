@@ -67,13 +67,6 @@ void setup(void){
   Serial.print("IP address:\t");
   Serial.println(WiFi.localIP());           // Send the IP address of the ESP8266 to the computer
 
-  // Beginning mDNS :')
-  if (MDNS.begin("esp8266")) {              // Start the mDNS responder for esp8266.local
-    Serial.println("mDNS responder started");
-  } else {
-    Serial.println("Error setting up MDNS responder!");
-  }
-
   // HTTP server handles
   server.on("/", handleRoot);               // Call the 'handleRoot' function when a client requests URI "/"
   server.onNotFound(handleNotFound);        // When a client requests an unknown URI (i.e. something other than "/"), call function "handleNotFound"
